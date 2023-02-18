@@ -1,1 +1,1 @@
-import _tkinter
+#import _tkinter
