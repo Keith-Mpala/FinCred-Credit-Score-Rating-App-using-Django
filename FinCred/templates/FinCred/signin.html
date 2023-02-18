@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "FinCred/base.html" %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+
+{% block content %}
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissble fade show" role="alert">
+    <strong>Message: </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true"></span>
+    </button>
+    </div>
+    {% endfor %}
+
+    <h2>myFinCred<span>&#174;</span> </h2>
+    <H3>Log in to FinCred</H3>
+
+    <form action="/signin" method="post"> 
+    {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter Your Username" required>
+        <br>
+        <label for="">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Enter Your Password" required>
+        <button type="submit">Sign In</button>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h2>Factors That Affect Your Credit Scores</h2>
+        <h4>FinCred® Score calculations treat their relative importance somewhat differently, but the most critical factors that influence credit scores are the following, ranked in order of significance:</h4>
+        <p>1. Number of Active credit cards. </p>
+        <p>2. Annual gross salary.  </p>
+        <p>3. Payment history for loans and credit cards. </p>
+        <p>4. Credit utilization. </p>      
+        <p>5. New credit accounts you've recently opened. </p>
+        <p>6. Length of credit history.</p>
+        <p>7. Total limit on credit cards.  </p>
+        <p>8. bankruptcy. </p>
+        
+        <br>
+        <hr>
+        <h2>What Isn't in Your Score</h2> 
+        <h3>The following information is not considered in determining your credit score, according to FinCred</h3>   
+        <p>
+            Marital status - 
+            Age (though FICO says some other types of scores may consider this) -
+            Race, color, religion, national origin -
+            Receipt of public assistance - 
+            Occupation, employment history, and employer -
+            Where you live -
+            Child/family support obligations - 
+        </p> 
+        <h5><i>Click to Exit Page</i> </h5>
+        <button type="submit"> <a href="/signout">Sign Out</a> </button>
+    </form>
+
+    
+    
+
+
+</body>
+
+{% endblock %}
+</html>

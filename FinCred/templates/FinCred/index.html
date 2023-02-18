@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+{% extends "FinCred/base.html" %}
+{% block content %}
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissble fade show" role="alert">
+    <strong>Message: </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+
+    <h1>The FinCred Score<span>&#174;</span></h1>
+    <h2>Welcome to FinCred Credit Score Rating Agency!!</h2>
+
+    {% if user.is_authenticated %}
+    <h3>Hello {{ fname }} </h3>
+    <p>You're successfully logged in.</p>
+    <br>
+    <h3>How to estimate your credit score</h3>
+    <p>
+        By answering eight simple questions, we can guess your likely credit score range: Excellent, Good, Fair, Limited, or Bad.
+        Although this doesn’t replace tracking your actual credit score, it can provide quick estimate if you don’t want to create an account at a monitoring site right now.
+    </p>
+    <br>
+    <h3>Estimate your credit score in about 30 seconds. Just answer a few simple questions about your past credit</h3>
+    <div>
+        <h3>Please provide your employment details below </h3>
+        <h2 class= "text-center my-3"></h2>
+        <form action="/employment_details" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="">Name of employer</label>
+            <input type="text" id="employer" name="employer" placeholder="Enter your most current employer" required>
+        </div>
+        <div>
+            <label for="">Sector</label>
+            <input type="text" id="sector" name="sector" placeholder="Engineering/Education/Financial Services/Medical etc" required>
+        </div>
+        <div>
+            <label for="">Contract Type</label>
+            <input type="text" id="contract" name="contract" placeholder="Full time/ Part time/ Contract" required>
+        </div>
+        <div>
+            <label for="">Years of employment</label>
+            <input type="number" id="years" name="years" placeholder="How long have you been in the employment industry" required>
+        </div>
+        <button type="submit">Submit</button>
+
+
+        </form>
+    </div>
+    
+    <h4>Click in the link before to exit page</h4>
+    <button type="submit"> <a href="/signout">Exit Page</a> </button>
+
+    {% else %}
+    <h4>The FinCred Score<span>&#174;</span> is used by 90 of the top 100 largest Southern Africa lending institutions for their risk assessment needs.</h4>
+    <h1>Can I Calculate My Credit Score?</h1>
+    <h3>Sign In to check your score</h3>
+    <button type="submit"><a href="/signin">Sign In</a>  </button> 
+    <br>
+    <h3>New to FinCred? Register below!!</h3>
+    <button type="submit"> <a href="/signup">Register</a> </button>
+    <br>
+    <h3>Log Out to exit page</h3>
+    <button type="submit"> <a href="/signout">Exit Page</a> </button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3>About FinCred Credit Scores</h3>
+    <p>FinCred<span>&#174;</span> is an app created to helping our users improve their financial wellbeing. The 
+        application is used for users to check their credit worthiness. 
+        • Users provide their credit history and the information is used to estimate their credit score.
+        • The credit score ranges between 300-850 and graded with highest score attaining an excellent remark and the least scores attaining an adverse remark. The higher the score, the better a borrower looks to potential lenders.
+        • FinCred also provides recommendations to users on financial institutions with affordable interest rates to approach based on the credit score outcome.
+    </p> 
+    <hr>
+    <p>&copy; FincCred 2022. All Rights Reserved</p>
+    {% endif %}
+
+    <script src="" async defer></script>
+</body>
+
+{% endblock %}
+</html>

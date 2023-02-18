@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreditScore</title>
+</head>
+{% extends "FinCred/base.html" %}
+{% block content %}
+{% csrf_token %}
+<body>
+    <h1><strong>myFinCred<span>&#174;</span></strong></h1>
+    <h3>{{fname}} {{lname}} your credit score is:  <h1>{{result}}</h1></h3>
+    <p>Your Score is an estimation based upon your responses 
+        (Results are only an estimation of your credit score and 
+        cannot predict whether you will be approved for a new credit card.)</p>
+    <hr>
+    <h1>How to read and understand your free credit scores</h1>
+    <p>Your credit scores can be a useful reflection of your overall credit health. But to get the most out of your scores, you must first understand how they work, what they represent and what actually constitutes a good credit score.</p>
+    <h3>Excellent (781–850):</h3>
+    <p>You may qualify for the best financial products available, and you’ll likely have several options when it comes to choosing repayment periods or other terms. But excellent credit scores aren’t the only factor in a lending decision — a lender could still deny your application for another reason.</p>
+    <h3>Good (661–780):</h3>
+    <p>You’re less likely to have an application denied based solely on your credit scores, compared to having scores in the fair or poor range, and you’re more likely to be offered a low interest rate and favorable terms.</p>
+    <h3>Fair (581–660):</h3>
+    <p>You may have several options when it comes to getting approved for a financial product, but you might not qualify for the best terms.</p>
+    <h3>Poor (300–580):</h3>
+    <p>You may find it difficult to get approved for many loans or unsecured credit cards. And if you’re approved, you might not qualify for the best terms or lowest interest rate.</p>
+
+</body>
+
+<h5><i>Click to Exit Page</i> </h5>
+<button type="submit"> <a href="/signout">Sign Out</a> </button>
+<hr>
+{% endblock %}
+</html>

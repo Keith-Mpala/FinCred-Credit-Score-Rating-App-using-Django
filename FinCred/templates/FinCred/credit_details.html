@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "FinCred/base.html" %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creditinfor</title>
+</head>
+{% block content %}
+<body>
+    <h1><strong>myFinCred<span>&#174;</span></strong></h1>
+    <h3><em><strong> FINCRED SCORE ESTIMATOR</strong></em></h2>
+    <div class="container">
+        <h2>Understanding your FinCred® Scores is a vital part of your financial health. Answer these eight easy questions and we will estimate your FinCred® Score range for free</h2>
+        <form action="/credit_details" method="post">
+        {% csrf_token %}    
+            <div>
+                <label for="">How many credit cards do you have?</label>
+                <input type="number" id="creditcards" name="creditcards" placeholder="Number of credit cards" required>
+            </div>
+            <div>
+                <label for="">What is your annual gross salary in zloty</label>
+                <input type="number" id="grosssalary" name="grosssalary" placeholder="Enter amount only" required>
+            </div>
+            <div>
+                <label for="">How many credit cards/loans are overdue</label>
+                <input type="number" id="overdueaccounts" name="overdueaccounts" placeholder="Numbers of cards & loans overdue" required>
+            </div>
+            <div>
+                <label for="">What are your total balances on loans and credit cards</label>
+                <input type="number" id="totalbalances" name="totalbalances" placeholder="Add all your credit and loan balances" required>
+            </div>
+            <div>
+                <label for="">How many credit cards did you open in the last 12 months</label>
+                <input type="number" id="newcards" name="newcards" placeholder="Number of newly opened cards" required>
+            </div>
+            <div>
+                <label for="">How long ago did you get your first loan</label>
+                <input type="number" id="firstloan" name="firstloan" placeholder=" Number of years" required>
+            </div>
+            <div>
+                <label for="">What is the total limit for all your credit cards</label>
+                <input type="number" id="totallimit" name="totallimit" placeholder="Amount in zloty" required>
+            </div>
+            <div>
+                <label for="">Have you been bankruptcy before?</label>
+                <input type="text" id="bankruptcy" name="bankruptcy" placeholder="Enter True/False" required>
+            </div>
+            <button type="submit">ESTIMATE</button>
+        </form>
+        <h3>How our estimator works</h3>
+        <h4>
+            Our Credit Score Estimator is just that—an estimator. Your actual credit score changes almost daily. Using our knowledge of the credit scoring process, we created this tool to provide a sound estimate of your credit level based upon a few simple questions. Some of the biggest factors in your credit score are:
+            
+            How long you’ve had credit accounts open
+            Your payment history on those accounts
+            The balances on those accounts
+            Negative events, like collections or bankruptcy
+            Recent credit applications
+            So give our Credit Score Estimator a try, then see recommended credit cards for your estimated score range.</h4>
+
+    </div>
+    
+
+</body>
+
+{% endblock %}
+</html>

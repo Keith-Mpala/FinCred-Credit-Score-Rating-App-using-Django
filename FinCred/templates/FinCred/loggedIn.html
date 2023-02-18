@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "FinCred/base.html" %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+
+{% block content %}
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissble fade show" role="alert">
+    <strong>Message: </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true"></span>
+    </button>
+    </div>
+    {% endfor %}
+    <h1>The FinCred Score<span>&#174;</span></h1>
+    <h2>Welcome to FinCred Credit Score Rating Agency!!</h2>
+    {% if user.is_authenticated %}
+    <h3>Hello {{fname}} </h3>
+    <p>You're successfully logged in.</p>
+    <br>
+    <h3>How to estimate your creidt score</h3>
+    <p>
+        By answering eight simple questions, we can guess your likely credit score range: Excellent, Good, Fair, Limited, or Bad.
+        Although this doesn’t replace tracking your actual credit score, it can provide quick estimate if you don’t want to create an account at a monitoring site right now.
+    </p>
+        <div>
+            <h3>Please provide your employment details below </h3>
+            <h2 class= "text-center my-3">Sign up 5</h2>
+            <form action="/creditdetails" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="">Name of employer</label>
+                <input type="text" id="employer" name="employer" placeholder="Enter your most current employer" required>
+            </div>
+            <div>
+                <label for="">Sector</label>
+                <input type="text" id="sector" name="sector" placeholder="Engineering/Education/Financial Services/Medical etc" required>
+            </div>
+            <div>
+                <label for="">Contract Type</label>
+                <input type="text" id="contract" name="contract" placeholder="Full time/ Part time/ Contract" required>
+            </div>
+            <div>
+                <label for="">Years of employment</label>
+                <input type="number" id="years" name="years" placeholder="How long have you been in the employment industry" required>
+            </div>
+            <p>1. <strong>Number of Active credit cards</strong>. An average of 2-3 active credit cards improves your score. Zero credit cards or many credit cards reduces your score as this does not show a greater credit risk </p>
+            <p>2. <strong>Annual gross salary</strong>. The more you earn, the more likely you're able to meet for financial obligations as they fall due. Higher annual income will increase your credit score </p>
+            <p>3. <strong>Payment history for loans and credit cards</strong>. This includes the number and severity of late payments and overdue credit accounts. Late payments will have a greater negative effect on your credit score than any other single factor.</p>
+            <p>4. <strong>Credit utilization</strong>. The total amount of outstanding debt you have relative to your credit limits is also known as your credit utilization ratio, and it plays a major role in determining your scores. To avoid negative effects on your credit scores, experts recommend keeping outstanding balances at or below 30% of each card's borrowing limit, but the lower your utilization, the better.</p>      
+            <p>5. <strong>New credit accounts you've recently opened</strong>. Opening several accounts  could represent a greater credit risk. Why? Because people tend to do so when they are experiencing cash flow problems or planning to take on lots of new debt. The negative effect of this factor tends to fade within a few months, as long as you keep up with all required payments.</p>
+            <p>6. <strong>Length of credit history</strong>. Lenders value borrowers with experience handling debt responsibly. A lengthy record of responsible credit usage (with minimal late or missed payments) tends to elevate scores more than a comparably short history of credit usage.</p>
+            <p>7. <strong>Total limit on credit cards</strong>. The higher the credit limit at your bank shows that you have a good credit history and this increases your credit score. </p>
+            <p>8. <strong>bankruptcy</strong>. Any record of bankruptcy, lowers your credit score greatly. Bankruptcy should be avoided as financial institutions can nolonger trust you with their finances</p>
+            
+            <button type="submit">Submit</button>
+
+
+            </form>
+        </div>
+
+    {% else %}
+    <h4>The FinCred Score<span>&#174;</span> is used by 90 of the top 100 largest Southern Africa lending institutions for their risk assessment needs.</h4>
+    <h3>Log In to check your score</h3>
+    <button type="submit"><a href="/signin">Sign In</a>  </button> 
+    <br>
+    <br>
+    <h3>New to FinCred? Register below!!</h3>
+    <button type="submit"> <a href="/signup">Register</a> </button>
+    <br>
+    <br>
+    <h3>About Fin Cred Credit Scores</h3>
+    <p>FinCred<span>&#174;</span> is an app created to helping our users improve their financial wellbeing. The 
+        application is used for users to check their credit worthiness. 
+        • Users provide their credit history and the information is used to estimate their credit score.
+        • The credit score ranges between 300-850 and graded with highest score attaining an excellent remark and the least scores attaining an adverse remark. The higher the score, the better a borrower looks to potential lenders.
+        • FinCred also provides recommendations to users on financial institutions with affordable interest rates to approach based on the credit score outcome.</p> 
+    <br>
+    <br>
+    <br>
+    <hr>
+    <p>&copy; FincCred 2022. All Rights Reserved</p>
+    {% endif %}
+
+
+    <script src="" async defer></script>
+</body>
+{% endblock %}
+
+</html>
