@@ -1,4 +1,5 @@
-from tkinter import CASCADE
+# from tkinter import CASCADE
+from tkinter import Menu, CASCADE
 from django.db import models
 
 # Create your models here.
