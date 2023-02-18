@@ -1,6 +1,7 @@
 # from tkinter import CASCADE
-import _tkinter
-from tkinter import Menu, CASCADE
+
+#from tkinter import Menu, CASCADE
+from django.db.models.deletion import CASCADE
 from django.db import models
 
 
