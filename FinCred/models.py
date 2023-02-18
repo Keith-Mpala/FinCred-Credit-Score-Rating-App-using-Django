@@ -1,6 +1,7 @@
 # from tkinter import CASCADE
 from tkinter import Menu, CASCADE
 from django.db import models
+import _tkinter
 
 # Create your models here.
 class PersonalDetails(models.Model):
