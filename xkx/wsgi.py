@@ -14,3 +14,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'xkx.settings')
 
 application = get_wsgi_application()
+
+#web: gunicorn xkx.wsgi:application --error-logfile /var/log/gunicorn-error.log --access-logfile /var/log/gunicorn-access.log
+

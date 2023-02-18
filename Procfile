@@ -1,1 +1,1 @@
-web: gunicorn xkx.wsgi --log-file
+web: gunicorn xkx.wsgi --log-file -
