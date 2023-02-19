@@ -24,7 +24,15 @@ SECRET_KEY = 'django-insecure-+%i+v8l@men*wmevu61++=!z6&u!#e2-2o1ipn07kp=jrcr7)k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
+
+from django.core.management import execute_from_command_line
+from django.conf import settings
+
+settings.configure(DEBUG=True, ALLOWED_HOSTS=['*'])
+
+if __name__ == '__main__':
+    execute_from_command_line(['manage.py', 'runserver', '0.0.0.0:5432'])
 
 
 # Application definition
