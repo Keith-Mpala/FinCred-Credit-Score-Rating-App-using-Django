@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#adding database url copied from railwayapp under postgresql connect
+DATABASE_URL = "postgresql://postgres:o8q2eG4rhwogLTdP8t1m@containers-us-west-133.railway.app:7289/railway"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -76,7 +80,7 @@ WSGI_APPLICATION = 'xkx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+#DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', #postgresql
         'NAME': 'FinCred',
@@ -88,6 +92,9 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
