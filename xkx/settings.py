@@ -26,13 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-from django.core.management import execute_from_command_line
-from django.conf import settings
-
-settings.configure(DEBUG=True, ALLOWED_HOSTS=['*'])
-
-if __name__ == '__main__':
-    execute_from_command_line(['manage.py', 'runserver', '0.0.0.0:5432'])
 
 
 # Application definition
